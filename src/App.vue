@@ -8,9 +8,7 @@ const showModal = ref(false);
 
 const handleSubmit = () => {
   if (!email.value || password.value.length < 6) {
-    return alert(
-      "Todos los campos son obligatorios y la contraseña debe tener al menos 6 caracteres."
-    );
+    return;
   }
   showModal.value = true;
 };
