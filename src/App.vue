@@ -4,6 +4,7 @@ import { ref } from "vue";
 const email = ref("");
 const password = ref("");
 const remember = ref(false);
+const showModal = ref(false); 
 
 const handleSubmit = () => {
   if (!email.value || password.value.length < 6) {
@@ -11,13 +12,24 @@ const handleSubmit = () => {
       "Todos los campos son obligatorios y la contraseña debe tener al menos 6 caracteres."
     );
   }
-  alert("¡Inicio de sesión exitoso!");
+  showModal.value = true;
+};
+
+const closeModal = () => {
+  showModal.value = false; 
 };
 </script>
+
 
 <-- Aquello que no tiene el a=# es qp no le he puesto q lo redireccione a la
 pagina original de steam, dando a entender como si fuera la de adeveras xd-->
 <template>
+  <div v-if="showModal" class="modal">
+    <div class="modal-content">
+      <span class="close" @click="closeModal">&times;</span>
+      <img src="./assets/splash.png" alt="Bienvenido a Steam" class="modal-img" />
+    </div>
+  </div>
   <div class="navbar">
     <div class="navbar-content">
       <div class="logo">
@@ -249,6 +261,46 @@ pagina original de steam, dando a entender como si fuera la de adeveras xd-->
 </template>
 
 <style scoped>
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1b2838;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  position: relative;
+  max-width: 400px;
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+.close:hover {
+  color: #f39c12;
+}
 .dropbtn {
   background-color: #171a21;
   color: #b6b7b4;
@@ -524,8 +576,9 @@ pagina original de steam, dando a entender como si fuera la de adeveras xd-->
 }
 
 .page-content {
-  background-image: url("https://store.cloudflare.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg");
+  background-image: url("./assets/steam_share_image.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 
   min-height: calc(100vh - 164px);
@@ -654,8 +707,7 @@ pagina original de steam, dando a entender como si fuera la de adeveras xd-->
 .qr-placeholder {
   width: 100%;
   height: 100%;
-  background-color: #444;
-  opacity: 0.5;
+  border-radius: 10px;
 }
 
 .qr-info {
