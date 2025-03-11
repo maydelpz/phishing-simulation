@@ -11,6 +11,7 @@ const handleSubmit = () => {
     return;
   }
   showModal.value = true;
+
 };
 
 const closeModal = () => {
@@ -280,7 +281,7 @@ pagina original de steam, dando a entender como si fuera la de adeveras xd-->
   text-align: center;
   color: white;
   position: relative;
-  max-width: 400px;
+  max-width: 750px;
 }
 
 .modal-img {
